@@ -30,7 +30,7 @@ function ContactPage() {
           <Reveal>
             <div className="flex justify-center mb-10">
               <div className="p-4 bg-white/50 backdrop-blur-md rounded-[3rem] shadow-xl border border-white">
-                <img src="/logo.png" alt="Company Logo" className="h-28 sm:h-36 w-auto object-contain drop-shadow-md" />
+                <img src="logo.png" alt="Company Logo" className="h-28 sm:h-36 w-auto object-contain drop-shadow-md" />
               </div>
             </div>
             <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-orange-100/50 text-[11px] font-extrabold uppercase tracking-[0.2em] text-orange-600 mb-8 shadow-sm shadow-orange-100/50">
