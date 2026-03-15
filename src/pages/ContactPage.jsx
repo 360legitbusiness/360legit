@@ -18,7 +18,7 @@ function ContactPage() {
       />
 
       {/* Premium Hero Section */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-36 bg-[#FDFCFB] overflow-hidden">
+      <section className="relative pt-8 pb-20 lg:pt-12 lg:pb-28 bg-[#FDFCFB] overflow-hidden">
         {/* Subtle Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -26,22 +26,51 @@ function ContactPage() {
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] pointer-events-none" />
         </div>
 
-        <div className="section-shell relative z-10 text-center mx-auto max-w-4xl">
+        <div className="section-shell relative z-10">
           <Reveal>
-            <div className="flex justify-center mb-10">
-              <div className="p-4 bg-white/50 backdrop-blur-md rounded-[3rem] shadow-xl border border-white">
-                <img src="logo.png" alt="Company Logo" className="h-28 sm:h-36 w-auto object-contain drop-shadow-md" />
+            <div className="w-full relative group overflow-hidden rounded-[2.5rem] sm:rounded-[4rem] border border-orange-100/50 bg-[#1B3942] shadow-[0_40px_80px_-20px_rgba(27,57,66,0.3)] transition-all duration-700">
+              {/* Animated Background Gradients & Grid for the Integrated Banner */}
+              <div className="absolute inset-0 z-0 opacity-40">
+                <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-orange-500/30 blur-[120px] rounded-full" />
+                <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-blue-500/20 blur-[150px] rounded-full" />
+                <div className="absolute inset-0 bg-animated-orange-grid" />
               </div>
+
+              {/* Banner Content Layout */}
+              <div className="relative z-10 p-10 sm:p-20 grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
+                
+                {/* Left: Branding Text Inline with Logo Design */}
+                <div className="text-left">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[10px] font-extrabold uppercase tracking-[0.2em] text-orange-400 mb-8 backdrop-blur-sm">
+                    <FiMessageCircle size={14} className="fill-orange-400/20" /> Global Advisory Support
+                  </span>
+                  <h1 className="font-serif text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+                    Let's Start a <span className="text-orange-400 italic">Conversation</span>
+                  </h1>
+                  <p className="text-xl text-slate-300 leading-relaxed font-medium max-w-lg">
+                    Whether you're a startup looking to incorporate or an enterprise optimizing tax, our domain experts are at your service.
+                  </p>
+                </div>
+
+                {/* Right: Large Logo with Compact White Background */}
+                <div className="flex justify-center lg:justify-end">
+                  <div className="relative p-4 sm:p-6 bg-white rounded-[2.5rem] border-2 border-orange-500/10 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.3)] transition-all duration-1000 group-hover:scale-105 group-hover:border-orange-500/30 animate-float-slow">
+                    {/* Inner Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-orange-50 rounded-[2.3rem]" />
+                    
+                    <img 
+                      src="contact us logo banner .png" 
+                      alt="360 Legit Business Solution Banner Logo" 
+                      className="relative z-10 h-40 sm:h-80 w-auto object-contain drop-shadow-xl transition-transform duration-700 hover:scale-105" 
+                    />
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Decorative Accent Line at the bottom */}
+              <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
             </div>
-            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-orange-100/50 text-[11px] font-extrabold uppercase tracking-[0.2em] text-orange-600 mb-8 shadow-sm shadow-orange-100/50">
-              <FiMessageCircle size={14} /> Global Advisory Support
-            </span>
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-[#1B3942] leading-[1.1] mb-8 tracking-tight">
-              Let's Start a <span className="text-orange-600 italic">Conversation</span>
-            </h1>
-            <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium">
-              Whether you're a startup looking to incorporate or an enterprise optimizing tax, our domain experts are at your service.
-            </p>
           </Reveal>
         </div>
       </section>

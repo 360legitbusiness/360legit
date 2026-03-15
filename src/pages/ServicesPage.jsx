@@ -28,6 +28,8 @@ const serviceIcons = {
   'ngo-non-profit-services': FiHeart,
   'intellectual-property': FiGlobe,
   'business-support-services': FiChevronRight,
+  'us-taxation-services': FiGlobe,
+  'lower-deduction-certificates': FiFileText,
 }
 
 function ServicesPage() {
@@ -62,9 +64,12 @@ function ServicesPage() {
                 <Link to="/contact" className="button-primary px-8">
                   Get Free Consultation
                 </Link>
-                <a href="#services-grid" className="button-secondary px-8">
+                <button 
+                  onClick={() => document.getElementById('services-grid')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="button-secondary px-8 cursor-pointer"
+                >
                   View All Categories
-                </a>
+                </button>
               </div>
             </div>
           </Reveal>
@@ -109,30 +114,35 @@ function ServicesPage() {
                 <Reveal key={category.title} delay={index * 50}>
                   <article 
                     id={category.slug} 
-                    className="group relative flex flex-col h-full bg-white rounded-3xl border border-slate-100 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(27,57,66,0.12)] scroll-mt-32"
+                    className="group relative flex flex-col h-full bg-white rounded-3xl border border-orange-100/30 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(249,115,22,0.15)] scroll-mt-32 overflow-hidden"
                   >
+                    {/* Decorative Background Icon */}
+                    <div className="absolute -right-6 -bottom-6 opacity-[0.03] text-orange-500 group-hover:opacity-[0.08] transition-opacity duration-500">
+                      <Icon size={120} />
+                    </div>
+
                     <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-500 shadow-sm shadow-orange-100">
                       <Icon size={24} />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1B3942] mb-6 tracking-tight">
+                    <h3 className="text-2xl font-bold text-[#1B3942] mb-6 tracking-tight group-hover:text-orange-600 transition-colors">
                       {category.title}
                     </h3>
-                    <ul className="space-y-4 flex-grow">
+                    <ul className="space-y-4 flex-grow relative z-10">
                       {category.items.map((item) => (
                         <li key={item} className="flex items-start gap-3 group/item">
                           <FiCheckCircle className="mt-1 shrink-0 text-orange-500 opacity-60 group-hover/item:opacity-100 transition-opacity" size={14} />
-                          <span className="text-sm font-medium text-slate-600 group-hover/item:text-[#1B3942] transition-colors leading-snug">
+                          <span className="text-sm font-bold text-slate-600 group-hover/item:text-[#1B3942] transition-colors leading-snug">
                             {item}
                           </span>
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-8 pt-8 border-t border-slate-50">
+                    <div className="mt-8 pt-8 border-t border-slate-50 relative z-10">
                       <Link 
-                        to="/contact" 
+                        to={`/services/${category.slug}`} 
                         className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-orange-600 hover:gap-3 transition-all"
                       >
-                        Enquire Now <FiArrowRight />
+                        Learn More <FiArrowRight />
                       </Link>
                     </div>
                   </article>
@@ -140,6 +150,23 @@ function ServicesPage() {
               )
             })}
           </div>
+
+          {/* New CTA Button at the bottom of the grid */}
+          <Reveal delay={200}>
+            <div className="mt-20 text-center">
+              <Link
+                to="/contact"
+                className="inline-flex flex-col items-center gap-6 group"
+              >
+                <div className="px-12 py-6 bg-orange-600 text-white rounded-2xl text-lg font-bold uppercase tracking-widest shadow-[0_20px_40px_-10px_rgba(249,115,22,0.4)] hover:bg-[#1B3942] hover:shadow-[0_20px_40px_-10px_rgba(27,57,66,0.4)] transition-all duration-300 hover:-translate-y-1">
+                  Contact us to claim service
+                </div>
+                <p className="text-slate-400 font-medium text-sm transition-colors group-hover:text-orange-600">
+                  Ready to start? Fill out our contact form and our experts will reach out to you immediately.
+                </p>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 

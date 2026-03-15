@@ -23,6 +23,7 @@ import Reveal from '../components/Reveal'
 import SEO from '../components/SEO'
 import SectionHeading from '../components/SectionHeading'
 import { clientBenefits, homeWhatWeOffer, clientReviews } from '../data/siteData'
+import homeHero from '../assets/home.jpeg'
 
 const trustFeatureCards = [
   {
@@ -57,6 +58,8 @@ const serviceIconsMap = {
   'ngo-non-profit-services': FiHeart,
   'intellectual-property': FiGlobe,
   'business-support-services': FiActivity,
+  'us-taxation-services': FiGlobe,
+  'lower-deduction-certificates': FiFileText,
 }
 
 const benefitIcons = [FiTrendingUp, FiShield, FiTarget, FiStar]
@@ -80,7 +83,7 @@ function HomePage() {
 
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('scroll', handleScroll, { passive: true })
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('scroll', handleScroll)
@@ -117,25 +120,25 @@ function HomePage() {
       <section className="relative min-h-[95vh] flex items-center pt-28 pb-20 overflow-hidden bg-[#1B3942]">
         {/* Dynamic Background Effects */}
         <div className="absolute inset-0 z-0">
-          <div 
+          <div
             className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-orange-500/20 blur-[120px] rounded-full transition-transform duration-1000 ease-out"
             style={{ transform: `translate(${mousePos.x}px, ${mousePos.y}px)` }}
           />
           <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-blue-500/10 blur-[150px] rounded-full" />
-          <div 
-            className="absolute inset-0 opacity-[0.03]" 
-            style={{ 
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
               backgroundImage: 'url("https://www.transparenttextures.com/patterns/cubes.png")',
               transform: `translateY(${scrollY * 0.2}px)`
-            }} 
+            }}
           />
         </div>
 
         <div className="section-shell relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
-            
+
             {/* Left Content */}
-            <div 
+            <div
               className="relative transition-transform duration-500 ease-out"
               style={{ transform: `translate(${-mousePos.x * 0.15}px, ${-mousePos.y * 0.15}px)` }}
             >
@@ -143,18 +146,18 @@ function HomePage() {
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[10px] font-extrabold uppercase tracking-[0.2em] text-orange-400 mb-8 backdrop-blur-sm">
                   <FiZap className="fill-orange-400" /> Premium Corporate Advisory
                 </div>
-                
+
                 <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8">
                   360° Business <span className="text-orange-500 italic">Consultancy</span> Solutions
                 </h1>
-                
+
                 <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mb-12 font-medium">
                   Professional taxation, compliance, and strategic advisory services. We build robust financial frameworks so you can focus entirely on scaling your vision.
                 </p>
-                
+
                 <div className="flex flex-wrap gap-5">
                   <Link to="/contact" className="button-primary px-8 py-5 text-sm uppercase tracking-widest font-extrabold shadow-[0_0_40px_-10px_rgba(249,115,22,0.5)] hover:shadow-[0_0_60px_-10px_rgba(249,115,22,0.6)] hover:-translate-y-1 transition-all duration-300">
-                    Get Free Consultation
+                    Get Consultation
                   </Link>
                   <Link to="/services" className="button-secondary bg-white/5 border border-white/10 text-white px-8 py-5 text-sm uppercase tracking-widest font-extrabold backdrop-blur-md hover:bg-white/10 transition-all duration-300">
                     Explore Services
@@ -179,24 +182,24 @@ function HomePage() {
             {/* Right Image/Graphic with Parallax */}
             <div className="relative hidden lg:block perspective-1000">
               <Reveal delay={200}>
-                <div 
+                <div
                   className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 bg-[#12262d] transition-transform duration-300 ease-out"
-                  style={{ 
+                  style={{
                     transform: `rotateY(${mousePos.x * 0.3}deg) rotateX(${-mousePos.y * 0.3}deg) translateY(${scrollY * 0.1}px)`,
                     transformStyle: 'preserve-3d',
                     boxShadow: `${-mousePos.x * 0.5}px ${-mousePos.y * 0.5}px 40px rgba(0,0,0,0.4)`
                   }}
                 >
-                  <img 
-                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=2000" 
-                    alt="Financial advisory showing charts" 
-                    className="w-full aspect-[4/5] object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:opacity-100 transition-all duration-700"
+                  <img
+                    src={homeHero}
+                    alt="360 Legit Business Solution - Digital Financial Ecosystem"
+                    className="w-full aspect-[4/5] object-cover opacity-90 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1B3942] via-transparent to-transparent pointer-events-none" />
                 </div>
-                
+
                 {/* Floating Element */}
-                <div 
+                <div
                   className="absolute -bottom-8 -left-8 bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl shadow-xl transition-transform duration-700 ease-out"
                   style={{ transform: `translate(${-mousePos.x * 1.5}px, ${-mousePos.y * 1.5}px)` }}
                 >
@@ -212,7 +215,7 @@ function HomePage() {
                 </div>
               </Reveal>
             </div>
-            
+
           </div>
         </div>
       </section>
@@ -234,47 +237,48 @@ function HomePage() {
             {homeWhatWeOffer.map((service, index) => {
               const ServiceIcon = serviceIconsMap[service.slug] || FiActivity
               return (
-              <Reveal key={service.title} delay={index * 100}>
-                <article 
-                  className="group h-full p-8 bg-white rounded-[2rem] border border-slate-100 shadow-[0_10px_40px_-20px_rgba(27,57,66,0.05)] transition-all duration-300 hover:shadow-[0_20px_50px_-20px_rgba(249,115,22,0.15)] flex flex-col justify-between"
-                  style={{
-                    transform: `perspective(1000px) rotateX(${mousePos.y * 0.05}deg) rotateY(${-mousePos.x * 0.05}deg) translateZ(0)`,
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
-                  <div style={{ transform: 'translateZ(30px)' }}>
-                    <div className="w-16 h-16 bg-orange-50/80 text-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500 shadow-sm border border-orange-100/50">
-                      <ServiceIcon size={32} />
+                <Reveal key={service.title} delay={index * 100}>
+                  <article
+                    className="group h-full p-8 bg-white rounded-[2rem] border border-slate-100 shadow-[0_10px_40px_-20px_rgba(27,57,66,0.05)] transition-all duration-300 hover:shadow-[0_20px_50px_-20px_rgba(249,115,22,0.15)] flex flex-col justify-between"
+                    style={{
+                      transform: `perspective(1000px) rotateX(${mousePos.y * 0.05}deg) rotateY(${-mousePos.x * 0.05}deg) translateZ(0)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
+                    <div style={{ transform: 'translateZ(30px)' }}>
+                      <div className="w-16 h-16 bg-orange-50/80 text-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500 shadow-sm border border-orange-100/50">
+                        <ServiceIcon size={32} />
+                      </div>
+                      <h3 className="text-2xl font-bold text-[#1B3942] group-hover:text-orange-600 transition-colors tracking-tight">{service.title}</h3>
+                      <p className="mt-4 text-[15px] leading-relaxed text-slate-500 font-medium">{service.description}</p>
+                      <div className="mt-6 space-y-3">
+                        {service.services.map((item) => (
+                          <div key={item} className="flex items-center gap-3 bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-xl">
+                            <FiCheckCircle className="text-orange-500 shrink-0" size={16} />
+                            <span className="text-xs font-bold uppercase tracking-wide text-slate-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-[#1B3942] group-hover:text-orange-600 transition-colors tracking-tight">{service.title}</h3>
-                    <p className="mt-4 text-[15px] leading-relaxed text-slate-500 font-medium">{service.description}</p>
-                    <div className="mt-6 space-y-3">
-                      {service.services.map((item) => (
-                        <div key={item} className="flex items-center gap-3 bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-xl">
-                          <FiCheckCircle className="text-orange-500 shrink-0" size={16} />
-                          <span className="text-xs font-bold uppercase tracking-wide text-slate-700">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
 
-                  <div className="mt-8 flex items-center justify-between" style={{ transform: 'translateZ(40px)' }}>
-                    {service.moreServicesLabel && (
-                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-                        {service.moreServicesLabel}
-                      </span>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() => setActiveService(service)}
-                      className="inline-flex items-center justify-center w-12 h-12 bg-orange-50 text-orange-600 rounded-full group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 ml-auto shadow-sm"
-                    >
-                      <FiArrowRight size={20} />
-                    </button>
-                  </div>
-                </article>
-              </Reveal>
-            )})}
+                    <div className="mt-8 flex items-center justify-between" style={{ transform: 'translateZ(40px)' }}>
+                      {service.moreServicesLabel && (
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
+                          {service.moreServicesLabel}
+                        </span>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => setActiveService(service)}
+                        className="inline-flex items-center justify-center w-12 h-12 bg-orange-50 text-orange-600 rounded-full group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 ml-auto shadow-sm"
+                      >
+                        <FiArrowRight size={20} />
+                      </button>
+                    </div>
+                  </article>
+                </Reveal>
+              )
+            })}
           </div>
 
           <Reveal delay={200}>
@@ -296,7 +300,7 @@ function HomePage() {
         <div className="absolute inset-0 z-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-orange-500 rounded-full blur-[150px]" />
         </div>
-        
+
         <div className="section-shell relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
@@ -331,7 +335,7 @@ function HomePage() {
                 const Icon = feature.icon
                 return (
                   <Reveal key={feature.title} delay={index * 150}>
-                    <article 
+                    <article
                       className="group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-transform duration-300 ease-out"
                       style={{
                         transform: `perspective(1000px) rotateX(${mousePos.y * 0.08}deg) rotateY(${-mousePos.x * 0.08}deg) translateZ(0)`,
@@ -369,13 +373,14 @@ function HomePage() {
               {clientBenefits.map((benefit, idx) => {
                 const BenefitIcon = benefitIcons[idx % benefitIcons.length]
                 return (
-                <li key={idx} className="group flex items-center gap-5 bg-white p-6 rounded-3xl shadow-sm border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-orange-100">
-                  <div className="h-14 w-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 shrink-0 group-hover:bg-orange-50 group-hover:text-orange-500 transition-colors duration-500 border border-slate-100 group-hover:border-orange-100">
-                    <BenefitIcon size={24} />
-                  </div>
-                  <span className="text-[16px] font-semibold text-[#1B3942] group-hover:text-orange-600 transition-colors leading-relaxed">{benefit}</span>
-                </li>
-              )})}
+                  <li key={idx} className="group flex items-center gap-5 bg-white p-6 rounded-3xl shadow-sm border border-slate-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-orange-100">
+                    <div className="h-14 w-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 shrink-0 group-hover:bg-orange-50 group-hover:text-orange-500 transition-colors duration-500 border border-slate-100 group-hover:border-orange-100">
+                      <BenefitIcon size={24} />
+                    </div>
+                    <span className="text-[16px] font-semibold text-[#1B3942] group-hover:text-orange-600 transition-colors leading-relaxed">{benefit}</span>
+                  </li>
+                )
+              })}
             </ul>
           </Reveal>
           <Reveal delay={150}>
@@ -405,7 +410,7 @@ function HomePage() {
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             {clientReviews.map((review, idx) => (
               <Reveal key={idx} delay={idx * 150}>
-                <div 
+                <div
                   className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_10px_40px_-20px_rgba(27,57,66,0.05)] hover:shadow-[0_20px_50px_-20px_rgba(249,115,22,0.15)] transition-all duration-300 group h-full flex flex-col justify-between"
                   style={{
                     transform: `perspective(1000px) rotateX(${mousePos.y * 0.05}deg) rotateY(${-mousePos.x * 0.05}deg) translateZ(0)`,
@@ -444,7 +449,7 @@ function HomePage() {
           <Reveal>
             <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-orange-500 to-red-600 p-10 md:p-16 text-white shadow-3xl shadow-orange-200">
               <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
-              
+
               <div className="relative flex flex-col md:flex-row items-center justify-between gap-10">
                 <div className="max-w-xl text-center md:text-left">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-100 mb-4">Take the Next Step</p>
@@ -452,7 +457,7 @@ function HomePage() {
                     Need expert business consultancy?
                   </h2>
                 </div>
-                
+
                 <Link to="/contact" className="px-10 py-5 bg-[#1B3942] text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl hover:bg-white hover:text-orange-600 transition-all shadow-2xl border border-transparent hover:border-orange-100 whitespace-nowrap">
                   Book A Consultation
                 </Link>
@@ -499,14 +504,14 @@ function HomePage() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
-                to={`/services#${activeService.slug}`}
+                to={`/services/${activeService.slug}`}
                 className="flex-1 text-center py-4 bg-orange-500 text-white font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/20"
                 onClick={() => setActiveService(null)}
               >
                 Go to {activeService.title} Page
               </Link>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="flex-1 py-4 bg-slate-100 text-slate-600 font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-slate-200 transition-colors"
                 onClick={() => setActiveService(null)}
               >

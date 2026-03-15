@@ -1,9 +1,9 @@
-import { 
-  FiFileText, 
-  FiPieChart, 
-  FiShield, 
-  FiTrendingUp, 
-  FiCheckCircle, 
+import {
+  FiFileText,
+  FiPieChart,
+  FiShield,
+  FiTrendingUp,
+  FiCheckCircle,
   FiArrowRight,
   FiZap,
   FiActivity
@@ -28,6 +28,20 @@ const taxationItems = [
     features: ['Business ITR Filing', 'Individual/HUF Returns', 'Audit Support', 'Revised Returns'],
     icon: FiFileText,
     color: 'bg-blue-50 text-blue-600'
+  },
+  {
+    title: 'HUF Registration & Filing',
+    description: 'Forming Hindu Undivided Families (HUF) for tax optimization, deed preparation, PAN application, and specialized annual tax management.',
+    features: ['HUF Deed Preparation', 'PAN Application Support', 'Tax Planning for HUF', 'Annual Compliance'],
+    icon: FiActivity,
+    color: 'bg-orange-50 text-orange-600'
+  },
+  {
+    title: 'TDS Return Filing',
+    description: 'Complete assistance for quarterly TDS returns, certificate issuance, and addressing defaults to ensure seamless compliance.',
+    features: ['Form 24Q, 26Q, 27Q Filing', 'TDS Certificate (Form 16/16A)', 'TDS Correction Returns', 'TDS Notice Resolution'],
+    icon: FiShield,
+    color: 'bg-green-50 text-green-600'
   }
 ]
 
@@ -38,10 +52,21 @@ const specializedServices = [
     icon: FiTrendingUp
   },
   {
+    title: 'HUF Registration & Filing',
+    text: 'Forming Hindu Undivided Families (HUF) for tax benefits, deed preparation, PAN application, and annual tax management.',
+    icon: FiActivity
+  },
+  {
+    title: 'TDS Return Filing',
+    text: 'Complete assistance for quarterly TDS returns (24Q, 26Q), certificate issuance, and addressing defaults.',
+    icon: FiShield
+  },
+  {
     title: 'Tax Notices Support',
     text: 'Professional representation and drafting replies for Scrutiny Notices, Rectifications, and Appeals.',
     icon: FiShield
   }
+
 ]
 
 function TaxationServicesPage() {
@@ -56,7 +81,7 @@ function TaxationServicesPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#FDFCFB]">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-orange-500/5 rounded-l-[120px] -z-10" />
-        
+
         <div className="section-shell">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
@@ -84,9 +109,9 @@ function TaxationServicesPage() {
             <Reveal delay={300}>
               <div className="relative">
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white p-3 bg-white/50 backdrop-blur-sm">
-                  <img 
-                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2011&auto=format&fit=crop" 
-                    alt="Tax professional working" 
+                  <img
+                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2011&auto=format&fit=crop"
+                    alt="Tax professional working"
                     className="w-full aspect-[4/5] object-cover rounded-[2.5rem]"
                   />
                 </div>
@@ -207,7 +232,7 @@ function TaxationServicesPage() {
           <Reveal>
             <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-orange-500 to-red-600 p-10 md:p-20 text-white shadow-3xl shadow-orange-200">
               <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
-              
+
               <div className="relative flex flex-col md:flex-row items-center justify-between gap-12">
                 <div className="max-w-2xl text-center md:text-left">
                   <h2 className="font-serif text-4xl md:text-6xl font-bold leading-tight mb-8">
@@ -217,7 +242,7 @@ function TaxationServicesPage() {
                     Partner with the specialists who understand your financial goals. Get a personalized tax roadmap today.
                   </p>
                 </div>
-                
+
                 <div className="flex flex-col gap-4 w-full md:w-auto">
                   <Link to="/contact" className="px-10 py-5 bg-[#1B3942] text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl hover:bg-white hover:text-orange-600 transition-all shadow-2xl text-center">
                     Book a Specialist Call

@@ -25,13 +25,15 @@ import {
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { companyName, contactInfo, navLinks, socialLinks } from '../data/siteData'
+import usTaxThumb from '../assets/services/us-taxation-hero.png'
+import ldcThumb from '../assets/services/ldc-hero.png'
 
 const serviceMenu = [
   {
     slug: 'taxation-services',
     title: 'Taxation Services',
     icon: FiFileText,
-    items: ['Income Tax Consultancy', 'Income Tax Return Filing', 'Tax Planning Advisory', 'Tax Notices Support'],
+    items: ['Income Tax', 'ITR Filing', 'HUF Registration', 'TDS Return Filing'],
   },
   {
     slug: 'gst-services',
@@ -87,6 +89,18 @@ const serviceMenu = [
     icon: FiChevronRight,
     items: ['IEC Registration', 'Export Consultancy', 'Financial Advisory'],
   },
+  {
+    slug: 'us-taxation-services',
+    title: 'US Taxation',
+    icon: FiGlobe,
+    items: ['Individual Tax', 'Corporate Tax', 'FBAR Compliance'],
+  },
+  {
+    slug: 'lower-deduction-certificates',
+    title: 'LDC & Certificates',
+    icon: FiFileText,
+    items: ['Section 197 LDC', 'Statutory Certificates', 'TDS Certificates'],
+  },
 ]
 
 const serviceImages = {
@@ -98,7 +112,9 @@ const serviceImages = {
   'labour-law-compliance': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=300&h=150&q=80',
   'ngo-non-profit-services': 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=300&h=150&q=80',
   'intellectual-property': 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=300&h=150&q=80',
-  'business-support-services': 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&h=150&q=80'
+  'business-support-services': 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&h=150&q=80',
+  'us-taxation-services': usTaxThumb,
+  'lower-deduction-certificates': ldcThumb
 }
 
 function Navbar() {
@@ -214,18 +230,18 @@ function Navbar() {
       {/* Main Navbar */}
       <div className="section-shell relative">
         <nav
-          className={`flex h-20 items-center justify-between rounded-b-2xl transition-all duration-500 px-4 sm:px-6 ${
+          className={`flex h-20 lg:h-28 items-center justify-between rounded-b-2xl transition-all duration-500 px-4 sm:px-6 ${
             isScrolled
               ? 'bg-white shadow-2xl border-x border-b border-orange-50'
               : 'bg-white border-transparent'
           }`}
         >
           {/* Logo Section */}
-          <Link to="/" className="flex items-center gap-2 group shrink-0 py-1">
-            <img src="logo.png" alt="360 Legit Business Logo" className="h-14 sm:h-[64px] w-auto object-contain transition-transform group-hover:scale-105 duration-300 drop-shadow-sm" />
-            <div className="flex flex-col leading-tight hidden xl:flex">
-              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-orange-500">Premium Advisory</span>
-              <span className="text-[12px] font-extrabold text-[#1B3942] tracking-tight">360 Legit Business</span>
+          <Link to="/" className="flex items-center gap-4 group shrink-0 py-2">
+            <img src="logo.png" alt="360 Legit Business Logo" className="h-16 sm:h-[72px] lg:h-[84px] w-auto object-contain transition-all duration-500 group-hover:scale-105 drop-shadow-sm" />
+            <div className={`flex flex-col leading-tight hidden xl:flex transition-all duration-500 ${isScrolled ? 'opacity-0 -translate-x-4' : 'opacity-100 translate-x-0'}`}>
+              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-orange-500">Premium Advisory</span>
+              <span className="text-[14px] font-black text-[#1B3942] tracking-tighter">360 Legit Business</span>
             </div>
           </Link>
 
@@ -265,16 +281,16 @@ function Navbar() {
 
                   {/* Mega Menu */}
                   <div
-                    className={`absolute left-0 right-0 top-full pt-4 transition-all duration-500 z-[100] ${
+                    className={`absolute left-0 right-0 top-full pt-2 transition-all duration-500 z-[100] ${
                       desktopServicesOpen ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 translate-y-4'
                     }`}
                   >
                     <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-orange-100 bg-white shadow-[0_40px_80px_-20px_rgba(15,23,42,0.4)]">
-                      <div className="grid grid-cols-12 min-h-[480px]">
+                      <div className="grid grid-cols-12">
                         {/* Sidebar / Spotlight */}
-                        <div className="col-span-3 bg-gradient-to-b from-slate-50 to-white p-10 border-r border-orange-50">
-                          <h3 className="text-2xl font-bold text-[#1B3942] mb-5 font-serif leading-tight">Expert solutions<br />for your business</h3>
-                          <p className="text-sm text-slate-500 leading-relaxed mb-8 font-medium">
+                        <div className="col-span-3 bg-gradient-to-b from-slate-50 to-white p-6 border-r border-orange-50">
+                          <h3 className="text-xl font-bold text-[#1B3942] mb-3 font-serif leading-tight">Expert solutions<br />for your business</h3>
+                          <p className="text-[13px] text-slate-500 leading-relaxed mb-6 font-medium">
                             Explore our comprehensive suite of professional services designed for modern enterprises.
                           </p>
                           <Link
@@ -284,36 +300,36 @@ function Navbar() {
                             Explore All <FiArrowRight className="transition-transform group-hover/link:translate-x-1" />
                           </Link>
                           
-                          <div className="mt-14 p-6 rounded-3xl bg-white border border-orange-100 shadow-sm">
-                            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500 mb-3">Direct Specialist</h4>
-                            <p className="text-xs text-slate-500 mb-5 font-medium leading-relaxed italic">Talk to our experts for a personalized roadmap for your business growth.</p>
-                            <Link to="/contact" className="block text-center py-3 bg-[#1B3942] text-white text-[10px] font-extrabold uppercase tracking-widest rounded-xl hover:bg-orange-600 transition shadow-lg shadow-orange-100/50 hover:shadow-orange-200">
+                          <div className="mt-4 p-4 rounded-3xl bg-white border border-orange-100 shadow-sm">
+                            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500 mb-2">Direct Specialist</h4>
+                            <p className="text-[10px] text-slate-500 mb-3 font-medium leading-relaxed italic">Talk to our experts for a personalized roadmap for your business growth.</p>
+                            <Link to="/contact" className="block text-center py-2.5 bg-[#1B3942] text-white text-[10px] font-extrabold uppercase tracking-widest rounded-xl hover:bg-orange-600 transition shadow-lg shadow-orange-100/50 hover:shadow-orange-200">
                               Book Consultation
                             </Link>
                           </div>
                         </div>
 
                         {/* Services Grid */}
-                        <div className="col-span-9 p-10 bg-white">
-                          <div className="grid grid-cols-3 gap-x-12 gap-y-12">
+                        <div className="col-span-9 p-6 bg-white flex items-center">
+                          <div className="grid grid-cols-4 gap-x-4 gap-y-4 w-full">
                             {serviceMenu.map((category) => {
                               const Icon = category.icon
                               return (
                                 <div key={category.title} className="group/item">
                                   <Link
                                     to={`/services/${category.slug}`}
-                                    className="flex flex-col gap-3 p-4 rounded-2xl bg-white border border-transparent shadow-[0_4px_20px_-10px_rgba(0,0,0,0.02)] transition-all duration-300 hover:bg-orange-50 hover:border-orange-100 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(249,115,22,0.1)]"
+                                    className="flex flex-col gap-2 p-3 rounded-2xl bg-white border border-transparent shadow-[0_4px_20px_-10px_rgba(0,0,0,0.02)] transition-all duration-300 hover:bg-orange-50 hover:border-orange-100 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(249,115,22,0.1)]"
                                     onClick={() => setDesktopServicesOpen(false)}
                                   >
-                                    <div className="flex items-center gap-4">
-                                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 text-orange-600 group-hover/item:bg-orange-500 group-hover/item:text-white transition-all duration-300 group-hover/item:shadow-lg group-hover/item:shadow-orange-200">
-                                        <Icon size={20} />
+                                    <div className="flex items-center gap-3">
+                                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-50 border border-slate-100 text-orange-600 group-hover/item:bg-orange-500 group-hover/item:text-white transition-all duration-300 group-hover/item:shadow-lg group-hover/item:shadow-orange-200">
+                                        <Icon size={16} />
                                       </div>
-                                      <span className="font-extrabold text-[#1B3942] group-hover/item:text-orange-600 transition-colors uppercase tracking-tight text-[11px]">
+                                      <span className="font-extrabold text-[#1B3942] group-hover/item:text-orange-600 transition-colors uppercase tracking-tight text-[9px]">
                                         {category.title}
                                       </span>
                                     </div>
-                                    <div className="w-full h-20 mt-1 rounded-xl overflow-hidden relative bg-slate-100 shadow-inner group-hover/item:shadow-orange-100/50">
+                                    <div className="w-full h-12 mt-1 rounded-xl overflow-hidden relative bg-slate-100 shadow-inner group-hover/item:shadow-orange-100/50">
                                       <img 
                                         src={serviceImages[category.slug]} 
                                         alt={category.title} 
@@ -427,9 +443,16 @@ function Navbar() {
               Get Consultation
             </Link>
             <div className="flex items-center justify-center gap-6 pt-6 flex-wrap">
-              {[FiLinkedin, FiFacebook, FiInstagram, FaXTwitter, FiYoutube, FiMessageCircle].map((Icon, idx) => (
-                <a key={idx} href="#" className="h-10 w-10 flex items-center justify-center rounded-xl bg-slate-50 text-slate-400">
-                  <Icon size={20} />
+              {[
+                { icon: FiLinkedin, link: socialLinks.linkedin },
+                { icon: FiFacebook, link: socialLinks.facebook },
+                { icon: FiInstagram, link: socialLinks.instagram },
+                { icon: FaXTwitter, link: socialLinks.twitter },
+                { icon: FiYoutube, link: socialLinks.youtube },
+                { icon: FiMessageCircle, link: socialLinks.whatsapp }
+              ].map((social, idx) => (
+                <a key={idx} href={social.link} target="_blank" rel="noreferrer" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-400 hover:bg-orange-500 hover:text-white transition-all">
+                  <social.icon size={22} />
                 </a>
               ))}
             </div>

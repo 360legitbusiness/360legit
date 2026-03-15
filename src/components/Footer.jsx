@@ -1,133 +1,203 @@
-import { FiFacebook, FiInstagram, FiLinkedin, FiMail, FiMapPin, FiPhone, FiYoutube, FiHeart, FiPhoneCall } from 'react-icons/fi'
+import { 
+  FiFacebook, 
+  FiInstagram, 
+  FiLinkedin, 
+  FiMail, 
+  FiMapPin, 
+  FiPhone, 
+  FiYoutube, 
+  FiHeart, 
+  FiPhoneCall,
+  FiShield,
+  FiTrendingUp,
+  FiActivity
+} from 'react-icons/fi'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
-import { companyName, contactInfo, navLinks, serviceOverview, socialLinks } from '../data/siteData'
+import { companyName, contactInfo, navLinks, serviceCategories, socialLinks } from '../data/siteData'
 
 function Footer() {
-  const serviceLinks = serviceOverview.slice(0, 5)
 
   return (
-    <footer className="relative mt-20 overflow-hidden bg-gradient-to-b from-[#FDFCFB] to-slate-50 pt-20 border-t border-orange-100">
-      {/* Gentle Animated Background Effect */}
-      <div className="absolute top-0 left-1/2 w-[800px] h-[400px] -translate-x-1/2 bg-orange-100/30 blur-[120px] rounded-full pointer-events-none animate-pulse" style={{ animationDuration: '4s' }} />
+    <footer className="relative mt-32 overflow-hidden bg-white pt-24 border-t border-slate-100">
+      {/* Premium Background Effects - Accounting/CA Vibe */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
+        <div className="absolute top-[10%] left-[5%] w-96 h-96 bg-orange-100/40 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[10%] right-[5%] w-80 h-80 bg-[#1B3942]/5 blur-[100px] rounded-full animate-float-slow" />
+        
+        {/* Dynamic Animated Orange Grid Pattern (Premium Accounting Feel) */}
+        <div className="absolute inset-0 bg-animated-orange-grid" />
+      </div>
       
-      <div className="section-shell relative z-10 pb-16">
-        <div className="grid gap-12 lg:grid-cols-4">
-          <div className="group">
-            <div className="mb-8">
-              <img src="logo.png" alt={companyName} className="h-28 sm:h-32 w-auto object-contain drop-shadow-md" />
+      <div className="section-shell relative z-10">
+        
+        {/* Flagship Brand Centerpiece - Logo Left, Vectors Right */}
+        <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 mb-24 group relative">
+          
+          {/* Border-less Massive Logo - Now on the Left */}
+          <div className="relative order-2 lg:order-1">
+            <div className="absolute -inset-24 bg-orange-500/5 blur-[120px] rounded-full group-hover:bg-orange-500/10 transition-colors duration-1000 pointer-events-none" />
+            <img 
+              src="logo.png" 
+              alt={companyName} 
+              className="relative z-10 h-64 sm:h-80 w-auto object-contain transition-transform duration-1000 group-hover:scale-[1.03]" 
+            />
+          </div>
+
+          {/* Trust Ecosystem - 4 Professional Animations - Now on the Right */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 order-1 lg:order-2">
+            {/* Growth Animation */}
+            <div className="relative p-4 bg-white border border-orange-100 shadow-xl rounded-2xl animate-float-slow transition-transform hover:scale-110">
+              <FiTrendingUp size={44} className="text-orange-600" />
+              <span className="absolute -bottom-2 -right-2 bg-orange-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-md">GROWTH</span>
             </div>
-            <p className="inline-block px-3 py-1 mb-4 rounded-full bg-orange-50 border border-orange-100 text-[10px] font-extrabold uppercase tracking-[0.2em] text-orange-500 shadow-sm transition-all group-hover:scale-105">
-              About Company
-            </p>
-            <h3 className="font-serif text-3xl font-bold text-[#1B3942] tracking-tight">{companyName}</h3>
-            <p className="mt-5 text-sm leading-relaxed text-slate-500 font-medium">
-              Your trusted partner for taxation, compliance and strategic startup advisory. We help businesses build untouchable regulatory foundations for consistent, compliant growth.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-sm font-bold text-[#1B3942] mb-6 tracking-wide">Quick Links</p>
-            <ul className="space-y-3">
-              {navLinks.map((item) => (
-                <li key={item.path}>
-                  <Link className="group/link flex items-center text-sm font-medium text-slate-500 transition-all hover:text-orange-600" to={item.path}>
-                    <span className="h-px w-0 bg-orange-500 transition-all duration-300 group-hover/link:w-3 group-hover/link:mr-2"></span>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-sm font-bold text-[#1B3942] mb-6 tracking-wide">Expertise</p>
-            <ul className="space-y-3">
-              {serviceLinks.map((service) => (
-                <li key={service.title}>
-                  <Link className="group/link flex items-center text-sm font-medium text-slate-500 transition-all hover:text-orange-600" to="/services">
-                    <span className="h-px w-0 bg-orange-500 transition-all duration-300 group-hover/link:w-3 group-hover/link:mr-2"></span>
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-sm font-bold text-[#1B3942] mb-6 tracking-wide">Contact Us</p>
-            <ul className="space-y-4 text-sm text-slate-500 font-medium">
-              <li className="flex items-start gap-4 group/contact">
-                <div className="mt-0.5 p-2 rounded-lg bg-orange-50 text-orange-500 group-hover/contact:bg-orange-500 group-hover/contact:text-white transition-colors duration-300">
-                  <FiMapPin size={16} />
-                </div>
-                <span className="leading-relaxed">{contactInfo.address}</span>
-              </li>
-              <li className="flex items-center gap-4 group/contact">
-                <div className="p-2 rounded-lg bg-orange-50 text-orange-500 group-hover/contact:bg-orange-500 group-hover/contact:text-white transition-colors duration-300">
-                  <FiPhone size={16} />
-                </div>
-                <a className="hover:text-orange-600 transition-colors" href={`tel:${contactInfo.phonePrimary.replace(/\s+/g, '')}`}>{contactInfo.phonePrimary}</a>
-              </li>
-              <li className="flex items-center gap-4 group/contact">
-                <div className="p-2 rounded-lg bg-orange-50 text-orange-500 group-hover/contact:bg-orange-500 group-hover/contact:text-white transition-colors duration-300">
-                  <FiMail size={16} />
-                </div>
-                <a className="hover:text-orange-600 transition-colors" href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
-              </li>
-            </ul>
-            <div className="mt-8 flex items-center gap-3">
-              {[
-                { icon: FiLinkedin, link: socialLinks.linkedin },
-                { icon: FiFacebook, link: socialLinks.facebook },
-                { icon: FiInstagram, link: socialLinks.instagram },
-                { icon: FaXTwitter, link: socialLinks.twitter },
-                { icon: FiYoutube, link: socialLinks.youtube }
-              ].map((social, idx) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={idx}
-                    href={social.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-xl bg-white border border-slate-100 text-slate-400 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:bg-orange-50 hover:text-orange-500 hover:shadow-md"
-                  >
-                    <Icon size={18} />
-                  </a>
-                )
-              })}
+            {/* Secure Animation */}
+            <div className="relative p-4 bg-white border border-blue-50 shadow-xl rounded-2xl animate-pulse transition-transform hover:scale-110">
+              <FiShield size={44} className="text-[#1B3942]" />
+              <span className="absolute -top-2 -left-2 bg-[#1B3942] text-white text-[8px] font-black px-1.5 py-0.5 rounded-md">SECURE</span>
+            </div>
+            {/* Trusted Animation */}
+            <div className="relative p-4 bg-white border border-green-50 shadow-xl rounded-2xl transition-transform hover:scale-110">
+              <FiHeart size={44} className="text-orange-500 fill-orange-500/10" />
+              <div className="absolute top-1 right-1 h-3 w-3 bg-green-500 rounded-full border border-white animate-ping" />
+              <span className="absolute -bottom-2 -right-2 bg-orange-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded-md">TRUSTED</span>
+            </div>
+            {/* Active Animation */}
+            <div className="relative p-4 bg-white border border-slate-100 shadow-xl rounded-2xl transition-transform hover:scale-110 hidden sm:block">
+              <FiActivity size={44} className="text-slate-400 group-hover:text-orange-500 transition-colors" />
+              <span className="absolute -top-2 -right-2 bg-slate-800 text-white text-[8px] font-black px-1.5 py-0.5 rounded-md">ACTIVE</span>
             </div>
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="mt-16 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-50"></div>
-
-        {/* Footer Bottom with Yuvan Creations Attribution */}
-        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-[13px] text-slate-500 font-medium">
-          <p>&copy; {new Date().getFullYear()} {companyName}. All rights reserved.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-12 pb-20">
           
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 bg-white py-2.5 px-6 rounded-full border border-orange-100 shadow-sm">
-            <div className="flex items-center gap-2">
-              Crafted with <span className="text-orange-600 font-bold mx-1">Trust</span> by 
+          {/* Column 1: Authority Messaging */}
+          <div className="lg:col-span-4 space-y-8">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-[11px] font-black uppercase tracking-[0.25em] text-orange-600 shadow-sm backdrop-blur-sm">
+              <FiShield className="text-orange-500" size={14} /> Certified Excellence
+            </div>
+            <div className="space-y-4">
+              <h2 className="font-serif text-3xl sm:text-4xl font-black text-[#1B3942] tracking-tight leading-[1.1]">
+                Precision in <span className="text-orange-600 italic">Financial Strategy</span>
+              </h2>
+              <p className="text-[16px] leading-relaxed text-slate-500 font-bold max-w-sm">
+                 {companyName} provides the expert strategic foundations needed for modern business growth and regulatory excellence.
+              </p>
+            </div>
+          </div>
+
+          {/* Column 2: Platform Nav */}
+          <div className="lg:col-span-2 space-y-8">
+            <h4 className="text-sm font-black uppercase tracking-[0.15em] text-[#1B3942] border-b border-orange-100 pb-3">Platform</h4>
+            <ul className="grid gap-4">
+              {navLinks.map((item) => (
+                <li key={item.path}>
+                  <Link className="group flex items-center text-[15px] font-bold text-slate-500 hover:text-orange-600 transition-colors" to={item.path}>
+                    <span className="w-0 overflow-hidden group-hover:w-4 transition-all duration-300 text-orange-500">→</span>
+                    <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Expertise Nav */}
+          <div className="lg:col-span-2 space-y-8">
+            <h4 className="text-sm font-black uppercase tracking-[0.15em] text-[#1B3942] border-b border-orange-100 pb-3">Expertise</h4>
+            <ul className="grid gap-4">
+              {serviceCategories.slice(0, 12).map((category) => (
+                <li key={category.title}>
+                  <Link className="group flex items-center text-[15px] font-bold text-slate-500 hover:text-orange-600 transition-colors" to={`/services/${category.slug}`}>
+                    <span className="w-0 overflow-hidden group-hover:w-4 transition-all duration-300 text-orange-500">→</span>
+                    <span className="group-hover:translate-x-1 transition-transform">{category.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Contact & Socials */}
+          <div className="lg:col-span-4 space-y-10">
+            <div className="space-y-6">
+              <h4 className="text-sm font-black uppercase tracking-[0.15em] text-[#1B3942] border-b border-orange-100 pb-3">Connect With Us</h4>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4 group/item">
+                  <div className="h-10 w-10 shrink-0 rounded-2xl bg-slate-50 border border-slate-100 text-slate-400 flex items-center justify-center group-hover/item:bg-orange-600 group-hover/item:text-white transition-all duration-500">
+                    <FiMapPin size={22} />
+                  </div>
+                  <p className="text-sm font-bold text-slate-600 leading-snug group-hover/item:text-[#1B3942]">
+                    {contactInfo.address}
+                  </p>
+                </li>
+                <li className="flex items-center gap-4 group/item">
+                   <div className="h-10 w-10 shrink-0 rounded-2xl bg-slate-50 border border-slate-100 text-slate-400 flex items-center justify-center group-hover/item:bg-orange-600 group-hover/item:text-white transition-all duration-500">
+                     <FiPhoneCall size={22} />
+                   </div>
+                   <a href={`tel:${contactInfo.phonePrimary.replace(/\s+/g, '')}`} className="text-sm font-bold text-slate-600 hover:text-orange-600">
+                     {contactInfo.phonePrimary}
+                   </a>
+                </li>
+                <li className="flex items-center gap-4 group/item">
+                   <div className="h-10 w-10 shrink-0 rounded-2xl bg-slate-50 border border-slate-100 text-slate-400 flex items-center justify-center group-hover/item:bg-orange-600 group-hover/item:text-white transition-all duration-500">
+                     <FiMail size={22} />
+                   </div>
+                   <a href={`mailto:${contactInfo.email}`} className="text-sm font-bold text-slate-600 hover:text-orange-600 break-all">
+                     {contactInfo.email}
+                   </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+               <div className="flex flex-wrap gap-4">
+                  {[
+                    { icon: FiLinkedin, link: socialLinks.linkedin },
+                    { icon: FiFacebook, link: socialLinks.facebook },
+                    { icon: FiInstagram, link: socialLinks.instagram },
+                    { icon: FaXTwitter, link: socialLinks.twitter },
+                    { icon: FiYoutube, link: socialLinks.youtube }
+                  ].map((social, idx) => (
+                    <a key={idx} href={social.link} target="_blank" rel="noreferrer" className="h-11 w-11 rounded-2xl bg-white border border-slate-100 text-[#1B3942] flex items-center justify-center shadow-sm hover:translate-y-[-4px] hover:bg-orange-600 hover:text-white transition-all duration-500">
+                      <social.icon size={20} />
+                    </a>
+                  ))}
+               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dynamic Horizontal Line */}
+        <div className="relative h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent">
+          <div className="absolute top-[-4px] left-1/2 -translate-x-1/2 px-4 bg-white">
+            <FiHeart className="text-orange-500 fill-orange-500 animate-pulse" size={10} />
+          </div>
+        </div>
+
+        {/* Footer Bottom Styling */}
+        <div className="py-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-[12px] font-black uppercase tracking-widest">
+          <p className="text-center lg:text-left text-[#1B3942]">
+            &copy; {new Date().getFullYear()} <span className="text-orange-600">{companyName}</span>. All rights reserved.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-10">
+            <div className="flex items-center gap-3 bg-slate-50 py-3 px-8 rounded-full border border-slate-100 shadow-inner group">
+              <span className="text-slate-400 italic font-bold">Crafted With Trust By</span>
               <a 
                 href="https://yuvancreations.github.io/yuvancreations/" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="font-bold text-[#1B3942] hover:text-orange-600 transition-colors uppercase tracking-wide ml-1"
+                className="text-[#1B3942] group-hover:text-orange-600 transition-colors font-black tracking-[0.2em]"
               >
                 YUVAN CREATIONS
               </a>
             </div>
-            <div className="hidden sm:block w-px h-4 bg-slate-200"></div>
+            
             <a 
               href="tel:+919557300217" 
-              className="flex items-center gap-2 text-orange-600 font-bold hover:text-orange-700 transition-colors group"
+              className="px-6 py-3 rounded-full bg-[#1B3942] text-white hover:bg-orange-600 transition-all duration-300 shadow-xl shadow-slate-200 hover:shadow-orange-200"
             >
-              <div className="p-1 rounded-md bg-orange-50 group-hover:bg-orange-100 transition-colors">
-                <FiPhoneCall size={12} />
-              </div>
               +91-9557300217
             </a>
           </div>

@@ -92,6 +92,14 @@ export const serviceOverview = [
     title: 'Import Export Consultancy',
     description: 'IEC guidance, documentation setup and compliance for cross-border operations.',
   },
+  {
+    title: 'US Taxation Services',
+    description: 'Expert US tax planning, preparation, and filing services for individuals and businesses.',
+  },
+  {
+    title: 'Lower Deduction Certificates',
+    description: 'Assistance in obtaining Lower Deduction Certificates (LDC) and other statutory certificates.',
+  },
 ]
 
 export const whyChooseUs = [
@@ -147,7 +155,7 @@ export const serviceCategories = [
   {
     slug: 'taxation-services',
     title: 'Taxation Services',
-    items: ['Income tax consultancy', 'Income tax filing', 'Tax planning', 'Tax notices handling'],
+    items: ['Income tax consultancy', 'Income tax filing', 'Tax planning', 'Tax notices handling', 'HUF registration & filing', 'TDS return filing'],
   },
   {
     slug: 'gst-services',
@@ -188,6 +196,16 @@ export const serviceCategories = [
     slug: 'business-support-services',
     title: 'Business Support Services',
     items: ['IEC registration', 'Export import consultancy', 'Financial advisory'],
+  },
+  {
+    slug: 'us-taxation-services',
+    title: 'US Taxation Services',
+    items: ['Individual Tax Preparation', 'Business Tax Preparation', 'FBAR & FATCA Compliance', 'ITIN Application'],
+  },
+  {
+    slug: 'lower-deduction-certificates',
+    title: 'Lower Deduction Certificates',
+    items: ['Section 197 LDC', 'Non-Deduction Certificates', 'Capital Gains Certificates', 'TDS/TCS Certificates'],
   },
 ]
 
@@ -262,6 +280,22 @@ export const homeWhatWeOffer = [
     description:
       'End-to-end business support including IEC registration, import-export consultancy, and financial advisory services.',
     services: ['IEC Registration', 'Export Import Consultancy', 'Financial Advisory'],
+    moreServicesLabel: '',
+  },
+  {
+    slug: 'us-taxation-services',
+    title: 'US Taxation Services',
+    description:
+      'Comprehensive US tax compliance and advisory services for expats, residents, and business entities.',
+    services: ['Individual Tax Return', 'Corporate Tax Return', 'FBAR/FATCA Compliance'],
+    moreServicesLabel: '',
+  },
+  {
+    slug: 'lower-deduction-certificates',
+    title: 'Lower Deduction Certificates',
+    description:
+      'End-to-end support for obtaining Lower Deduction or Non-Deduction certificates under the Income Tax Act.',
+    services: ['Section 197 LDC', 'Non-Deduction Certificates', 'Statutory Certificates'],
     moreServicesLabel: '',
   },
 ]
