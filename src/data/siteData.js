@@ -3,6 +3,7 @@ import growthAdvisoryImage from '../assets/carousel/growth-advisory.svg'
 import complianceGrowthImage from '../assets/carousel/compliance-growth.svg'
 
 export const companyName = '360 Legit Business Solution Pvt Ltd'
+export const siteUrl = 'https://www.360lbs.in'
 
 export const navLinks = [
   { label: 'Home', path: '/' },
