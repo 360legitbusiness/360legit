@@ -211,7 +211,10 @@ function AboutPage() {
 
                   <div className="space-y-6">
                     <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                      Krishna brings a precise and strategic approach to business consultancy, specializing in streamlining complex financial operations and compliance frameworks for modern enterprises.
+                      Krishna Sharma is a distinguished financial consultant known for delivering strategic, data-driven financial solutions to modern enterprises. His expertise spans financial modelling, international, direct, and indirect taxation, along with handling complex scrutiny and assessment matters with precision.
+                    </p>
+                    <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                      He crafts robust financial budgeting frameworks that empower businesses to scale with confidence and stability. With a strong command over corporate compliance, he ensures seamless alignment with evolving regulatory standards. A trusted partner for businesses seeking excellence, clarity, and long-term financial success.
                     </p>
 
                     <div className="grid grid-cols-2 gap-6 pt-4">
