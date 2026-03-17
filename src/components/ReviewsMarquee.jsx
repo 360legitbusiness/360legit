@@ -24,7 +24,7 @@ function ReviewsMarquee() {
               ))}
             </div>
             
-            <p className="text-slate-600 font-serif italic text-base sm:text-lg leading-relaxed mb-8 h-[100px] overflow-hidden">
+            <p className="text-slate-600 font-serif italic text-base sm:text-lg leading-relaxed mb-8 min-h-[100px]">
               "{review.review}"
             </p>
 
