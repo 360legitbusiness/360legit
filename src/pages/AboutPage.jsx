@@ -211,11 +211,15 @@ function AboutPage() {
 
                   <div className="space-y-6">
                     <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                      Krishna Sharma is a distinguished financial consultant known for delivering strategic, data-driven financial solutions to modern enterprises. His expertise spans financial modelling, international, direct, and indirect taxation, along with handling complex scrutiny and assessment matters with precision.
+                      A distinguished consultant delivering strategic, data-driven financial solutions. Krishna specializes in:
                     </p>
-                    <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                      He crafts robust financial budgeting frameworks that empower businesses to scale with confidence and stability. With a strong command over corporate compliance, he ensures seamless alignment with evolving regulatory standards. A trusted partner for businesses seeking excellence, clarity, and long-term financial success.
-                    </p>
+                    <ul className="space-y-2">
+                      {['International, Direct & Indirect Taxation', 'Complex Scrutiny & Assessment Matters', 'Financial Modelling & Strategic Growth'].map((point) => (
+                        <li key={point} className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full bg-orange-500" /> {point}
+                        </li>
+                      ))}
+                    </ul>
 
                     <div className="grid grid-cols-2 gap-6 pt-4">
                       <div className="flex items-start gap-3">
@@ -223,8 +227,8 @@ function AboutPage() {
                           <FiShield size={18} />
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-[#1B3942]">Strategic Audit</p>
-                          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight">Financial Governance</p>
+                          <p className="text-sm font-bold text-[#1B3942]">Financial Budgeting</p>
+                          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight">Strategic Planning</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
@@ -232,8 +236,8 @@ function AboutPage() {
                           <FiTrendingUp size={18} />
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-[#1B3942]">Market Analysis</p>
-                          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight">Growth Planning</p>
+                          <p className="text-sm font-bold text-[#1B3942]">Corporate Compliance</p>
+                          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight">Regulatory Standards</p>
                         </div>
                       </div>
                     </div>
