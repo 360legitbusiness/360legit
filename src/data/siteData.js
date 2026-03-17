@@ -371,25 +371,46 @@ export const requiredDocuments = {
   'gst-services': {
     title: 'GST Registration',
     documents: [
-      'PAN Card of Business/Proprietor',
-      'Aadhaar Card of Proprietor/Partners/Directors',
-      'Electricity Bill (Business Address)',
-      'NOC / Rent Agreement for office space',
-      'Cancelled Cheque / Bank Statement',
-      'Photo of Proprietor/Partners/Directors',
-      'Digital Signature (DSC) for Companies/LLPs'
+      '👤 1. For Individual / Proprietorship:',
+      '• PAN Card of proprietor',
+      '• Aadhaar Card (linked with mobile for OTP)',
+      '• Photograph (passport size)',
+      '• Bank Account Proof (Cancelled cheque / statement)',
+      '• Address Proof (Electricity bill / Property tax receipt)',
+      '• Rent Agreement (if rented) + NOC from owner',
+      '🏢 2. For Partnership Firm / LLP:',
+      '• PAN Card of firm/LLP',
+      '• Partnership Deed / LLP Agreement',
+      '• PAN & Aadhaar of all partners',
+      '• Photographs of partners',
+      '• Bank Proof & Business Address Proof',
+      '🏠 3. For Company (Pvt Ltd / OPC / Public):',
+      '• PAN Card of Company',
+      '• Certificate of Incorporation, MOA & AOA',
+      '• PAN & Aadhaar of Directors',
+      '• Photographs & Board Resolution',
+      '• Registered Office Address Proof'
     ]
   },
   'business-registration': {
-    title: 'Company Incorporation',
+    title: 'Pvt Ltd Company Incorporation',
     documents: [
-      'PAN Card of all Directors/Partners',
-      'Aadhaar Card / Voter ID of all members',
-      'Latest Bank Statement for Proof of Identity',
-      'Passport size photos of all members',
-      'Proof of Registered Office (Electricity/Water Bill)',
-      'Rent Agreement & NOC from owner',
-      'Signed Declaration / Consent forms'
+      '👤 1. Directors & Shareholders Documents:',
+      '• PAN Card (Mandatory for Indians)',
+      '• Aadhaar Card / Passport / Voter ID',
+      '• Passport-size Photograph',
+      '• Email ID & Mobile Number',
+      '• Digital Signature Certificate (DSC)',
+      '👉 For Foreign Nationals: Passport (Mandatory) & Address Proof (Notarized)',
+      '🏢 2. Registered Office Proof:',
+      '• Electricity / Water Bill (Max 2 months old)',
+      '• Rent Agreement (if rented) & NOC from owner',
+      '• Ownership Proof (if self-owned)',
+      '📋 3. Additional Requirements:',
+      '• Director Identification Number (DIN)',
+      '• Authorized Capital details',
+      '• Proposed Company Name (2-3 options)',
+      '• Business Activity Description & Shareholding Pattern'
     ]
   },
   'labour-law-compliance': {
@@ -407,12 +428,21 @@ export const requiredDocuments = {
   'intellectual-property': {
     title: 'Trademark Registration',
     documents: [
-      'Brand Name or Logo (JPEG)',
-      'Signed Power of Attorney (TM-48)',
-      'User Affidavit (if trademark is already in use)',
-      'Identity Proof of the Applicant',
-      'MSME / Startup Certificate (for discounted fee)',
-      'Business Registration Proof'
+      '👤 1. Applicant Documents:',
+      '• For Individual: PAN, Aadhaar, Photo',
+      '• For Company/LLP: PAN of entity, COI/Deed, Address Proof',
+      '🏷️ 2. Trademark Details:',
+      '• Brand Name / Logo (JPEG/PNG)',
+      '• Tagline / Slogan (if any)',
+      '• Description of Goods/Services & TM Class',
+      '📍 3. Business & Usage Proof:',
+      '• Address Proof of Business',
+      '• User Affidavit (If already in use since date)',
+      '• Invoices / Bills / Website proof',
+      '✍️ 4. Authorization (Important):',
+      '• GST Registration Certificate',
+      '• MSME / Udyam Certificate',
+      '• Shop & Establishment License'
     ]
   },
   'ngo-non-profit-services': {
