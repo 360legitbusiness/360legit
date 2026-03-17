@@ -2,6 +2,18 @@ import accountingSystemsImage from '../assets/carousel/accounting-systems.svg'
 import growthAdvisoryImage from '../assets/carousel/growth-advisory.svg'
 import complianceGrowthImage from '../assets/carousel/compliance-growth.svg'
 
+// Client Reviews Images
+import ekdantaImg from '../assets/reviews/ekdantadentalsolutionspvtltd.jpeg'
+import eliteImg from '../assets/reviews/elitevoyagestourandtravellingindustry.jpeg'
+import goyalImg from '../assets/reviews/goyalmedicos.jpeg'
+import happyImg from '../assets/reviews/happytimepublicschool.jpeg'
+import nutrivalleyImg from '../assets/reviews/nutrivalleylifepvtltd.jpeg'
+import rajdhaniImg from '../assets/reviews/rajdhanichemicals.jpeg'
+import shreeBbjImg from '../assets/reviews/shreebbjindustrieshavingbusinessofwireandpipes.jpeg'
+import shreeCreationImg from '../assets/reviews/shreecreations.jpeg'
+import shreeInvestorImg from '../assets/reviews/shreeinvestorandtravels.jpeg'
+import tekdezireImg from '../assets/reviews/tekdezirepvtltd.jpeg'
+
 export const companyName = '360 Legit Business Solution Pvt Ltd'
 export const siteUrl = 'https://www.360lbs.in'
 
@@ -124,22 +136,74 @@ export const whyChooseUs = [
 
 export const clientReviews = [
   {
-    name: 'Rahul Sharma',
-    company: 'TechFlow Solutions',
-    review: '360 Legit Business Solution transformed our chaotic accounting into a streamlined powerhouse. Their GST and tax planning saved us lakhs this financial year. An absolute game-changer for our startup.',
+    name: 'Ekdanta Dental',
+    company: 'Ekdanta Dental Solutions Pvt Ltd',
+    review: 'The professional approach to our taxation and GST filings has been exceptional. 360 Legit is our trusted partner for compliance.',
     rating: 5,
+    image: ekdantaImg,
   },
   {
-    name: 'Priya Verma',
-    company: 'Verma & Associates',
-    review: 'The proactive compliance reminders and dedicated relationship manager give me immense peace of mind. I no longer worry about ROC filings or missed deadlines. High-end, premium service.',
+    name: 'Elite Voyages',
+    company: 'Elite Voyages Tour & Travelling',
+    review: 'Highly recommended for startup consultancy. They handled our incorporation and trademark registration with total transparency.',
     rating: 5,
+    image: eliteImg,
   },
   {
-    name: 'Amit Patel',
-    company: 'Patel Manufacturing Pvt Ltd',
-    review: 'From company registration to our trademark filing, the 360 Legit team handled everything flawlessly. Their deep expertise in corporate law and taxation is unmatched in the industry.',
+    name: 'Goyal Medicos',
+    company: 'Goyal Medicos',
+    review: 'Reliable and timely accounting services. Their team is always available to resolve queries and provide expert financial guidance.',
     rating: 5,
+    image: goyalImg,
+  },
+  {
+    name: 'Happy Time School',
+    company: 'Happy Time Public School',
+    review: 'Managing educational institution compliance is complex, but 360 Legit makes it look easy. Very professional and ethical team.',
+    rating: 5,
+    image: happyImg,
+  },
+  {
+    name: 'NutriValley',
+    company: 'NutriValley Life Pvt Ltd',
+    review: 'Excellent service for GST and ROC compliance. Their proactive reminders ensure we never miss a deadline.',
+    rating: 5,
+    image: nutrivalleyImg,
+  },
+  {
+    name: 'Rajdhani Chemicals',
+    company: 'Rajdhani Chemicals',
+    review: 'Our partnership with 360 Legit has improved our financial reporting discipline significantly. A must-have for every growing business.',
+    rating: 5,
+    image: rajdhaniImg,
+  },
+  {
+    name: 'Shree BBJ Industries',
+    company: 'Shree BBJ Industries (Wire & Pipes)',
+    review: 'Strategic audit and financial governance at its best. Their insights have helped us optimize our business operations.',
+    rating: 5,
+    image: shreeBbjImg,
+  },
+  {
+    name: 'Shree Creations',
+    company: 'Shree Creations',
+    review: 'Creative solutions for complex tax problems. The team is knowledgeable and highly accountable for every case they handle.',
+    rating: 5,
+    image: shreeCreationImg,
+  },
+  {
+    name: 'Shree Investor',
+    company: 'Shree Investor & Travels',
+    review: 'Smooth trademark lifecycle handling and solid advisory for our expansion plans. Truly a 360-degree support system.',
+    rating: 5,
+    image: shreeInvestorImg,
+  },
+  {
+    name: 'Tekdezire',
+    company: 'Tekdezire Pvt Ltd',
+    review: 'Automation-driven accounting and clear MIS reports have given us better control over our finances. Exceptional support!',
+    rating: 5,
+    image: tekdezireImg,
   },
 ]
 

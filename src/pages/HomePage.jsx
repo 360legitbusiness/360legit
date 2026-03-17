@@ -22,6 +22,7 @@ import ConsultationLeadForm from '../components/ConsultationLeadForm'
 import Reveal from '../components/Reveal'
 import SEO from '../components/SEO'
 import SectionHeading from '../components/SectionHeading'
+import ReviewsMarquee from '../components/ReviewsMarquee'
 import { clientBenefits, homeWhatWeOffer, clientReviews } from '../data/siteData'
 import homeHero from '../assets/home.jpeg'
 
@@ -397,49 +398,19 @@ function HomePage() {
       {/* Client Satisfaction / Reviews Section */}
       <section className="section-space relative overflow-hidden bg-[#FDFCFB]">
         <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] pointer-events-none" />
-        <div className="section-shell relative z-10">
+        <div className="section-shell relative z-10 overflow-hidden">
           <Reveal>
             <SectionHeading
               eyebrow="Client Satisfaction"
-              title="Trusted by Emerging Startups & established Corporates"
+              title="Trusted by Emerging Startups & Established Corporates"
               description="See how our 360 degree integrated advisory approach has transformed businesses across various sectors."
               centered
             />
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            {clientReviews.map((review, idx) => (
-              <Reveal key={idx} delay={idx * 150}>
-                <div
-                  className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_10px_40px_-20px_rgba(27,57,66,0.05)] hover:shadow-[0_20px_50px_-20px_rgba(249,115,22,0.15)] transition-all duration-300 group h-full flex flex-col justify-between"
-                  style={{
-                    transform: `perspective(1000px) rotateX(${mousePos.y * 0.05}deg) rotateY(${-mousePos.x * 0.05}deg) translateZ(0)`,
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
-                  <div style={{ transform: 'translateZ(20px)' }}>
-                    <div className="flex gap-1 mb-6 text-orange-500">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <FiStar key={i} size={18} className="fill-orange-500" />
-                      ))}
-                    </div>
-                    <p className="text-slate-600 font-serif italic text-lg leading-relaxed mb-8">
-                      "{review.review}"
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4 mt-auto border-t border-slate-50 pt-6" style={{ transform: 'translateZ(10px)' }}>
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#1B3942] to-[#2c5360] flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-110 transition-transform duration-300">
-                      {review.name.charAt(0)}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[#1B3942] tracking-tight">{review.name}</h4>
-                      <p className="text-xs font-bold text-orange-600 uppercase tracking-wider">{review.company}</p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={200}>
+            <ReviewsMarquee />
+          </Reveal>
         </div>
       </section>
 
