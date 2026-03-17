@@ -205,6 +205,20 @@ export const clientReviews = [
     rating: 5,
     image: tekdezireImg,
   },
+  {
+    name: 'Star Track Inc',
+    company: 'Star Track Inc',
+    review: 'Exceptional export-import consultancy and IEC documentation support. They made our global trade operations seamless and compliant.',
+    rating: 5,
+    image: null,
+  },
+  {
+    name: 'Twang Tirath Yatra',
+    company: 'TWANG TIRATH YATRA',
+    review: 'Reliable legal and regulatory support for our travel operations. Professional team with deep expertise in compliance management.',
+    rating: 5,
+    image: null,
+  },
 ]
 
 export const clientBenefits = [
