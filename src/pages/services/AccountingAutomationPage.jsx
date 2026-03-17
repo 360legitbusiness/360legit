@@ -47,9 +47,9 @@ function AccountingAutomationPage() {
                   <Link to="/contact" className="button-primary bg-[#1B3942] hover:bg-blue-600 px-10 py-5">
                     Upgrade Your Systems
                   </Link>
-                  <a href="#services" className="button-secondary bg-white border border-slate-200 px-10 py-5">
+                  <Link to="/contact" className="button-secondary bg-white border border-slate-200 px-10 py-5">
                     Explore Features
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Reveal>

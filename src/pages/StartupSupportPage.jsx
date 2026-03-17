@@ -73,9 +73,9 @@ function StartupSupportPage() {
                   <Link to="/contact" className="button-primary px-8 py-4 text-sm uppercase tracking-widest font-bold">
                     Start Your Formation
                   </Link>
-                  <a href="#roadmap" className="button-secondary bg-white border border-slate-200 px-8 py-4 text-sm uppercase tracking-widest font-bold">
+                  <Link to="/contact" className="button-secondary bg-white border border-slate-200 px-8 py-4 text-sm uppercase tracking-widest font-bold">
                     View Roadmap
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Reveal>

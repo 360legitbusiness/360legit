@@ -46,9 +46,9 @@ function BusinessSupportPage() {
                   <Link to="/contact" className="button-primary bg-[#1B3942] hover:bg-orange-600 px-10 py-5">
                     Start Scaling
                   </Link>
-                  <a href="#services" className="button-secondary bg-white border border-slate-200 px-10 py-5">
+                  <Link to="/contact" className="button-secondary bg-white border border-slate-200 px-10 py-5">
                     Explore Advisory
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Reveal>

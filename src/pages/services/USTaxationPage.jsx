@@ -79,9 +79,9 @@ function USTaxationPage() {
                   <Link to="/contact" className="px-10 py-5 bg-orange-500 text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/20">
                     Get US Tax Consultation
                   </Link>
-                  <a href="#details" className="px-10 py-5 bg-white/5 border border-white/10 text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all">
+                  <Link to="/contact" className="px-10 py-5 bg-white/5 border border-white/10 text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all">
                     Explore Services
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Reveal>

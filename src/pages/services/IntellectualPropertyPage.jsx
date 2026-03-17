@@ -13,9 +13,13 @@ import { Link } from 'react-router-dom'
 import Reveal from '../../components/Reveal'
 import SEO from '../../components/SEO'
 import SectionHeading from '../../components/SectionHeading'
+import DocumentListPopup from '../../components/DocumentListPopup'
 import { companyName } from '../../data/siteData'
+import { useState } from 'react'
 
 function IntellectualPropertyPage() {
+  const [isDocsOpen, setIsDocsOpen] = useState(false)
+
   return (
     <>
       <SEO
@@ -45,9 +49,13 @@ function IntellectualPropertyPage() {
                   <Link to="/contact" className="button-primary bg-[#1B3942] hover:bg-orange-600 px-10 py-5">
                     Register Your TM
                   </Link>
-                  <a href="#services" className="button-secondary bg-white border border-slate-200 px-10 py-5">
-                    Explore IP Advisory
-                  </a>
+                  <button 
+                    onClick={() => setIsDocsOpen(true)}
+                    className="button-secondary bg-white border border-slate-200 px-10 py-5 flex items-center gap-2 group"
+                  >
+                    <FiFileText className="text-orange-600 group-hover:scale-110 transition-transform" />
+                    Required Documents
+                  </button>
                 </div>
               </div>
             </Reveal>
@@ -164,6 +172,12 @@ function IntellectualPropertyPage() {
           </Reveal>
         </div>
       </section>
+
+      <DocumentListPopup 
+        serviceSlug="intellectual-property"
+        isOpen={isDocsOpen}
+        onClose={() => setIsDocsOpen(false)}
+      />
     </>
   )
 }

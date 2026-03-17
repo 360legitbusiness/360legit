@@ -13,7 +13,10 @@ import { Link } from 'react-router-dom'
 import Reveal from '../../components/Reveal'
 import SEO from '../../components/SEO'
 import SectionHeading from '../../components/SectionHeading'
+import DocumentListPopup from '../../components/DocumentListPopup'
 import { companyName } from '../../data/siteData'
+import heroImage from '../../assets/services/business-registration-hero.png'
+import { useState } from 'react'
 
 const registrationTypes = [
   {
@@ -40,6 +43,8 @@ const registrationTypes = [
 ]
 
 function BusinessRegistrationPage() {
+  const [isDocsOpen, setIsDocsOpen] = useState(false)
+
   return (
     <>
       <SEO
@@ -70,9 +75,13 @@ function BusinessRegistrationPage() {
                   <Link to="/contact" className="px-10 py-5 bg-orange-600 text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl hover:bg-white hover:text-[#1B3942] transition-all shadow-2xl shadow-orange-900/40">
                     Register Your Company
                   </Link>
-                  <a href="#types" className="px-10 py-5 bg-white/5 border border-white/10 text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl hover:bg-white/10 transition-all">
-                    Compare Structures
-                  </a>
+                  <button 
+                    onClick={() => setIsDocsOpen(true)}
+                    className="px-10 py-5 bg-white/5 border border-white/10 text-white font-extrabold uppercase tracking-widest text-xs rounded-2xl hover:bg-white/10 transition-all flex items-center gap-2 group"
+                  >
+                    <FiFileText className="text-orange-400 group-hover:scale-110 transition-transform" />
+                    Required Documents
+                  </button>
                 </div>
               </div>
             </Reveal>
@@ -81,7 +90,7 @@ function BusinessRegistrationPage() {
               <div className="relative group">
                 <div className="aspect-[4/3] rounded-[4rem] overflow-hidden border border-white/10 shadow-3xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop" 
+                    src={heroImage} 
                     alt="Team discussing business structure" 
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                   />
@@ -221,6 +230,12 @@ function BusinessRegistrationPage() {
           </Reveal>
         </div>
       </section>
+
+      <DocumentListPopup 
+        serviceSlug="business-registration"
+        isOpen={isDocsOpen}
+        onClose={() => setIsDocsOpen(false)}
+      />
     </>
   )
 }

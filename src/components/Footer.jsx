@@ -1,16 +1,14 @@
 import { 
-  FiFacebook, 
   FiInstagram, 
-  FiLinkedin, 
   FiMail, 
   FiMapPin, 
   FiPhone, 
-  FiYoutube, 
   FiHeart, 
   FiPhoneCall,
   FiShield,
   FiTrendingUp,
-  FiActivity
+  FiActivity,
+  FiMessageCircle
 } from 'react-icons/fi'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
@@ -153,11 +151,9 @@ function Footer() {
             <div className="space-y-6">
                <div className="flex flex-wrap gap-4">
                   {[
-                    { icon: FiLinkedin, link: socialLinks.linkedin },
-                    { icon: FiFacebook, link: socialLinks.facebook },
                     { icon: FiInstagram, link: socialLinks.instagram },
                     { icon: FaXTwitter, link: socialLinks.twitter },
-                    { icon: FiYoutube, link: socialLinks.youtube }
+                    { icon: FiMessageCircle, link: socialLinks.whatsapp }
                   ].map((social, idx) => (
                     <a key={idx} href={social.link} target="_blank" rel="noreferrer" className="h-11 w-11 rounded-2xl bg-white border border-slate-100 text-[#1B3942] flex items-center justify-center shadow-sm hover:translate-y-[-4px] hover:bg-orange-600 hover:text-white transition-all duration-500">
                       <social.icon size={20} />
@@ -178,7 +174,7 @@ function Footer() {
         {/* Footer Bottom Styling */}
         <div className="py-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-[12px] font-black uppercase tracking-widest">
           <p className="text-center lg:text-left text-[#1B3942]">
-            &copy; {new Date().getFullYear()} <span className="text-orange-600">{companyName}</span>. All rights reserved.
+            <Link to="/admin-login" className="inline-block cursor-pointer hover:text-orange-600 transition-colors">&copy;</Link> {new Date().getFullYear()} <span className="text-orange-600">{companyName}</span>. All rights reserved.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-10">

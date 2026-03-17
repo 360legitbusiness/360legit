@@ -350,10 +350,80 @@ export const contactInfo = {
 }
 
 export const socialLinks = {
-  linkedin: 'https://www.linkedin.com',
-  facebook: 'https://www.facebook.com',
-  instagram: 'https://www.instagram.com',
-  twitter: 'https://x.com',
-  youtube: 'https://www.youtube.com',
+  instagram: 'https://www.instagram.com/360legitbusinesssolution?igsh=MXFlNTJsZmZhM2NxOA%3D%3D&utm_source=qr',
+  twitter: 'https://x.com/360lbspl?s=11&t=EnMsTBtZzlGQP72jX-cL2A',
   whatsapp: 'https://wa.me/919217871979',
+}
+
+export const requiredDocuments = {
+  'taxation-services': {
+    title: 'Income Tax Return Filing',
+    documents: [
+      'PAN Card & Aadhaar Card',
+      'Bank Statements (All accounts for the FY)',
+      'Form 16 / Form 16A',
+      'Investment Proofs (80C, 80D, etc.)',
+      'Capital Gains details (if any)',
+      'Home Loan Interest Certificate',
+      'Rent Receipts (for HRA claim)'
+    ]
+  },
+  'gst-services': {
+    title: 'GST Registration',
+    documents: [
+      'PAN Card of Business/Proprietor',
+      'Aadhaar Card of Proprietor/Partners/Directors',
+      'Electricity Bill (Business Address)',
+      'NOC / Rent Agreement for office space',
+      'Cancelled Cheque / Bank Statement',
+      'Photo of Proprietor/Partners/Directors',
+      'Digital Signature (DSC) for Companies/LLPs'
+    ]
+  },
+  'business-registration': {
+    title: 'Company Incorporation',
+    documents: [
+      'PAN Card of all Directors/Partners',
+      'Aadhaar Card / Voter ID of all members',
+      'Latest Bank Statement for Proof of Identity',
+      'Passport size photos of all members',
+      'Proof of Registered Office (Electricity/Water Bill)',
+      'Rent Agreement & NOC from owner',
+      'Signed Declaration / Consent forms'
+    ]
+  },
+  'labour-law-compliance': {
+    title: 'PF & ESI Registration',
+    documents: [
+      'PAN Card of the Establishment',
+      'Certificate of Incorporation / Registration',
+      'Electricity Bill / Rent Agreement',
+      'PAN & Aadhaar of the Authorized Signatory',
+      'Cancelled Cheque of the Business',
+      'List of Employees with joining dates',
+      'Digital Signature of the employer'
+    ]
+  },
+  'intellectual-property': {
+    title: 'Trademark Registration',
+    documents: [
+      'Brand Name or Logo (JPEG)',
+      'Signed Power of Attorney (TM-48)',
+      'User Affidavit (if trademark is already in use)',
+      'Identity Proof of the Applicant',
+      'MSME / Startup Certificate (for discounted fee)',
+      'Business Registration Proof'
+    ]
+  },
+  'ngo-non-profit-services': {
+    title: 'NGO / Trust Registration',
+    documents: [
+      'PAN and Aadhaar of all members',
+      'Electricity Bill of Registered Office',
+      'NOC from the owner of the property',
+      'Trust Deed / Memorandum of Association',
+      'Passport size photos of all members',
+      'Voter ID / Driving License for members'
+    ]
+  },
 }

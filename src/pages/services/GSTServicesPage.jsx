@@ -12,7 +12,10 @@ import { Link } from 'react-router-dom'
 import Reveal from '../../components/Reveal'
 import SEO from '../../components/SEO'
 import SectionHeading from '../../components/SectionHeading'
+import DocumentListPopup from '../../components/DocumentListPopup'
 import { companyName } from '../../data/siteData'
+import heroImage from '../../assets/services/gst-hero.png'
+import { useState } from 'react'
 
 const gstServices = [
   {
@@ -45,6 +48,8 @@ const auditSupport = [
 ]
 
 function GSTServicesPage() {
+  const [isDocsOpen, setIsDocsOpen] = useState(false)
+
   return (
     <>
       <SEO
@@ -76,9 +81,13 @@ function GSTServicesPage() {
                   <Link to="/contact" className="button-primary bg-emerald-600 hover:bg-emerald-700 px-10 py-5">
                     Consult GST Expert
                   </Link>
-                  <a href="#solutions" className="button-secondary bg-white border border-slate-200 px-10 py-5">
-                    Veiw Compliance Plan
-                  </a>
+                  <button 
+                    onClick={() => setIsDocsOpen(true)}
+                    className="button-secondary bg-white border border-slate-200 px-10 py-5 flex items-center gap-2 group"
+                  >
+                    <FiFileText className="text-emerald-600 group-hover:scale-110 transition-transform" />
+                    Required Documents
+                  </button>
                 </div>
               </div>
             </Reveal>
@@ -87,7 +96,7 @@ function GSTServicesPage() {
               <div className="relative">
                 <div className="bg-white p-2 rounded-[3.5rem] shadow-3xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop" 
+                    src={heroImage} 
                     alt="Financial document review" 
                     className="w-full aspect-square object-cover rounded-[3rem]"
                   />
@@ -219,6 +228,12 @@ function GSTServicesPage() {
           </Reveal>
         </div>
       </section>
+
+      <DocumentListPopup 
+        serviceSlug="gst-services"
+        isOpen={isDocsOpen}
+        onClose={() => setIsDocsOpen(false)}
+      />
     </>
   )
 }

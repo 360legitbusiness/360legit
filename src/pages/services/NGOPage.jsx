@@ -13,7 +13,9 @@ import { Link } from 'react-router-dom'
 import Reveal from '../../components/Reveal'
 import SEO from '../../components/SEO'
 import SectionHeading from '../../components/SectionHeading'
+import DocumentListPopup from '../../components/DocumentListPopup'
 import { companyName } from '../../data/siteData'
+import { useState } from 'react'
 
 const ngoTypes = [
   {
@@ -40,6 +42,8 @@ const ngoTypes = [
 ]
 
 function NGOPage() {
+  const [isDocsOpen, setIsDocsOpen] = useState(false)
+
   return (
     <>
       <SEO
@@ -69,9 +73,13 @@ function NGOPage() {
                   <Link to="/contact" className="button-primary bg-[#1B3942] hover:bg-red-600 px-10 py-5">
                     Consult NGO Expert
                   </Link>
-                  <a href="#types" className="button-secondary bg-white border border-slate-200 px-10 py-5">
-                    Compare NGO Types
-                  </a>
+                  <button 
+                    onClick={() => setIsDocsOpen(true)}
+                    className="button-secondary bg-white border border-slate-200 px-10 py-5 flex items-center gap-2 group"
+                  >
+                    <FiFileText className="text-red-600 group-hover:scale-110 transition-transform" />
+                    Required Documents
+                  </button>
                 </div>
               </div>
             </Reveal>
@@ -184,6 +192,12 @@ function NGOPage() {
           </div>
         </div>
       </section>
+
+      <DocumentListPopup 
+        serviceSlug="ngo-non-profit-services"
+        isOpen={isDocsOpen}
+        onClose={() => setIsDocsOpen(false)}
+      />
     </>
   )
 }

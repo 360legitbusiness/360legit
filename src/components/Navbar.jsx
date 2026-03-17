@@ -5,13 +5,11 @@ import {
   FiBriefcase,
   FiChevronDown,
   FiChevronRight,
-  FiFacebook,
   FiFileText,
   FiGlobe,
   FiHeart,
   FiInstagram,
   FiLayers,
-  FiLinkedin,
   FiMail,
   FiMapPin,
   FiMenu,
@@ -19,14 +17,19 @@ import {
   FiPhone,
   FiUsers,
   FiX,
-  FiYoutube,
   FiShield,
 } from 'react-icons/fi'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { companyName, contactInfo, navLinks, socialLinks } from '../data/siteData'
+import { db } from '../firebase'
+import { doc, getDoc, updateDoc, increment, setDoc, onSnapshot } from 'firebase/firestore'
 import usTaxThumb from '../assets/services/us-taxation-hero.png'
 import ldcThumb from '../assets/services/ldc-hero.png'
+import labourLawThumb from '../assets/services/labour-law-hero.png'
+import taxationThumb from '../assets/services/taxation-hero.png'
+import gstThumb from '../assets/services/gst-hero.png'
+import businessRegThumb from '../assets/services/business-registration-hero.png'
 
 const serviceMenu = [
   {
@@ -104,12 +107,12 @@ const serviceMenu = [
 ]
 
 const serviceImages = {
-  'taxation-services': 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=300&h=150&q=80',
-  'gst-services': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&h=150&q=80',
-  'business-registration': 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=300&h=150&q=80',
+  'taxation-services': taxationThumb,
+  'gst-services': gstThumb,
+  'business-registration': businessRegThumb,
   'legal-regulatory-compliance': 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=300&h=150&q=80',
   'accounting-automation': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&h=150&q=80',
-  'labour-law-compliance': 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=300&h=150&q=80',
+  'labour-law-compliance': labourLawThumb,
   'ngo-non-profit-services': 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=300&h=150&q=80',
   'intellectual-property': 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=300&h=150&q=80',
   'business-support-services': 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&h=150&q=80',
@@ -125,24 +128,47 @@ function Navbar() {
   const [mobileActiveCategory, setMobileActiveCategory] = useState('')
   const dropdownRef = useRef(null)
   const location = useLocation()
-
-  const [visitorCount] = useState(() => {
-    if (typeof window === 'undefined') return 0
-    const counterKey = 'lbs-visitor-counter'
-    const countedKey = 'lbs-visitor-counted-session'
-    const currentCount = Number.parseInt(window.localStorage.getItem(counterKey) ?? '0', 10)
-    const safeCount = Number.isNaN(currentCount) ? 0 : currentCount
-    if (window.sessionStorage.getItem(countedKey) === 'true') return safeCount
-    const nextCount = safeCount + 1
-    window.localStorage.setItem(counterKey, String(nextCount))
-    window.sessionStorage.setItem(countedKey, 'true')
-    return nextCount
-  })
+  const [visitorCount, setVisitorCount] = useState(0)
 
   useEffect(() => {
+    const visitorKey = 'lbs-visitor-session-id-v2'
+    const isNewSession = !sessionStorage.getItem(visitorKey)
+    const statsRef = doc(db, 'stats', 'visitors_v2')
+
+    // 1. Setup real-time listener for the count
+    const unsubscribe = onSnapshot(statsRef, (docSnap) => {
+      if (docSnap.exists()) {
+        setVisitorCount(docSnap.data().count)
+      } else {
+        // Initialize if doesn't exist
+        setDoc(statsRef, { count: 10 })
+      }
+    })
+
+    // 2. Increment if it's a new session
+    if (isNewSession) {
+      const incrementCounter = async () => {
+        try {
+          const docSnap = await getDoc(statsRef)
+          if (docSnap.exists()) {
+            await updateDoc(statsRef, { count: increment(1) })
+          } else {
+            await setDoc(statsRef, { count: 11 }) // 10 + 1
+          }
+          sessionStorage.setItem(visitorKey, 'true')
+        } catch (error) {
+          console.error("Visitor count error:", error)
+        }
+      }
+      incrementCounter()
+    }
+
     const onScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      unsubscribe()
+    }
   }, [])
 
   useEffect(() => {
@@ -207,11 +233,8 @@ function Navbar() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3 border-r border-white/10 pr-4">
               {[
-                { icon: FiLinkedin, link: socialLinks.linkedin, label: 'LinkedIn' },
-                { icon: FiFacebook, link: socialLinks.facebook, label: 'Facebook' },
                 { icon: FiInstagram, link: socialLinks.instagram, label: 'Instagram' },
                 { icon: FaXTwitter, link: socialLinks.twitter, label: 'X' },
-                { icon: FiYoutube, link: socialLinks.youtube, label: 'YouTube' },
                 { icon: FiMessageCircle, link: socialLinks.whatsapp, label: 'WhatsApp' },
               ].map((social) => (
                 <a key={social.label} href={social.link} target="_blank" rel="noreferrer" className="opacity-70 transition hover:scale-110 hover:text-orange-400 hover:opacity-100">
@@ -444,11 +467,8 @@ function Navbar() {
             </Link>
             <div className="flex items-center justify-center gap-6 pt-6 flex-wrap">
               {[
-                { icon: FiLinkedin, link: socialLinks.linkedin },
-                { icon: FiFacebook, link: socialLinks.facebook },
                 { icon: FiInstagram, link: socialLinks.instagram },
                 { icon: FaXTwitter, link: socialLinks.twitter },
-                { icon: FiYoutube, link: socialLinks.youtube },
                 { icon: FiMessageCircle, link: socialLinks.whatsapp }
               ].map((social, idx) => (
                 <a key={idx} href={social.link} target="_blank" rel="noreferrer" className="h-12 w-12 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-400 hover:bg-orange-500 hover:text-white transition-all">

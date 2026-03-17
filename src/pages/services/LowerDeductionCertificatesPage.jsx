@@ -75,9 +75,9 @@ function LowerDeductionCertificatesPage() {
                   <Link to="/contact" className="button-primary px-10 py-5">
                     Apply for Certificate
                   </Link>
-                  <a href="#details" className="button-secondary bg-white border border-slate-200 px-10 py-5">
+                  <Link to="/contact" className="button-secondary bg-white border border-slate-200 px-10 py-5">
                     View Requirements
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Reveal>

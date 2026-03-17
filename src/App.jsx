@@ -19,6 +19,8 @@ import IntellectualPropertyPage from './pages/services/IntellectualPropertyPage'
 import BusinessSupportPage from './pages/services/BusinessSupportPage'
 import USTaxationPage from './pages/services/USTaxationPage'
 import LowerDeductionCertificatesPage from './pages/services/LowerDeductionCertificatesPage'
+import AdminLoginPage from './pages/AdminLoginPage'
+import AdminDashboard from './pages/AdminDashboard'
 
 function App() {
   return (
@@ -43,10 +45,13 @@ function App() {
         </Route>
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/admin-login" element={<AdminLoginPage />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   )
 }
+
 
 export default App

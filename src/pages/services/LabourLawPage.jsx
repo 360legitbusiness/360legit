@@ -13,9 +13,14 @@ import { Link } from 'react-router-dom'
 import Reveal from '../../components/Reveal'
 import SEO from '../../components/SEO'
 import SectionHeading from '../../components/SectionHeading'
+import DocumentListPopup from '../../components/DocumentListPopup'
 import { companyName } from '../../data/siteData'
+import heroImage from '../../assets/services/labour-law-hero.png'
+import { useState } from 'react'
 
 function LabourLawPage() {
+  const [isDocsOpen, setIsDocsOpen] = useState(false)
+
   return (
     <>
       <SEO
@@ -45,9 +50,13 @@ function LabourLawPage() {
                   <Link to="/contact" className="button-primary bg-blue-600 hover:bg-[#1B3942] px-10 py-5">
                     Consult Labour Expert
                   </Link>
-                  <a href="#services" className="button-secondary bg-white border border-slate-200 px-10 py-5">
-                    View Compliance Scope
-                  </a>
+                  <button 
+                    onClick={() => setIsDocsOpen(true)}
+                    className="button-secondary bg-white border border-slate-200 px-10 py-5 flex items-center gap-2 group"
+                  >
+                    <FiFileText className="text-blue-600 group-hover:scale-110 transition-transform" />
+                    Required Documents
+                  </button>
                 </div>
               </div>
             </Reveal>
@@ -56,7 +65,7 @@ function LabourLawPage() {
               <div className="relative">
                 <div className="p-4 bg-white rounded-[3rem] shadow-3xl">
                   <img
-                    src="https://images.unsplash.com/photo-1521791136064-7986c2923216?q=80&w=2069&auto=format&fit=crop"
+                    src={heroImage}
                     alt="Workforce and HR management"
                     className="w-full aspect-[4/5] object-cover rounded-[2.5rem]"
                   />
@@ -183,6 +192,12 @@ function LabourLawPage() {
           </Reveal>
         </div>
       </section>
+
+      <DocumentListPopup 
+        serviceSlug="labour-law-compliance"
+        isOpen={isDocsOpen}
+        onClose={() => setIsDocsOpen(false)}
+      />
     </>
   )
 }

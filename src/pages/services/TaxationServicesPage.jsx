@@ -12,7 +12,10 @@ import { Link } from 'react-router-dom'
 import Reveal from '../../components/Reveal'
 import SEO from '../../components/SEO'
 import SectionHeading from '../../components/SectionHeading'
+import DocumentListPopup from '../../components/DocumentListPopup'
 import { companyName } from '../../data/siteData'
+import heroImage from '../../assets/services/taxation-hero.png'
+import { useState } from 'react'
 
 const taxationItems = [
   {
@@ -70,6 +73,7 @@ const specializedServices = [
 ]
 
 function TaxationServicesPage() {
+  const [isDocsOpen, setIsDocsOpen] = useState(false)
   return (
     <>
       <SEO
@@ -99,9 +103,13 @@ function TaxationServicesPage() {
                   <Link to="/contact" className="button-primary px-10 py-5">
                     Start Tax Consultation
                   </Link>
-                  <a href="#details" className="button-secondary bg-white border border-slate-200 px-10 py-5">
-                    Explore Services
-                  </a>
+                  <button 
+                    onClick={() => setIsDocsOpen(true)}
+                    className="button-secondary bg-white border border-slate-200 px-10 py-5 flex items-center gap-2 group"
+                  >
+                    <FiFileText className="text-orange-600 group-hover:scale-110 transition-transform" />
+                    Required Documents
+                  </button>
                 </div>
               </div>
             </Reveal>
@@ -110,7 +118,7 @@ function TaxationServicesPage() {
               <div className="relative">
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white p-3 bg-white/50 backdrop-blur-sm">
                   <img
-                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2011&auto=format&fit=crop"
+                    src={heroImage}
                     alt="Tax professional working"
                     className="w-full aspect-[4/5] object-cover rounded-[2.5rem]"
                   />
@@ -256,6 +264,12 @@ function TaxationServicesPage() {
           </Reveal>
         </div>
       </section>
+
+      <DocumentListPopup 
+        serviceSlug="taxation-services"
+        isOpen={isDocsOpen}
+        onClose={() => setIsDocsOpen(false)}
+      />
     </>
   )
 }
